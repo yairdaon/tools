@@ -97,7 +97,7 @@ def find_embedding_dimension(series: pd.Series,
     if ind.any():
         optimal_embedding_dimension = mean_false_nearest_neighbors.loc[ind].index.min()
     else:
-        optimal_embedding_dimension = mean_false_nearest_neighbors.index.max()
+        optimal_embedding_dimension = 0
         warnings.warn(f"Unable to calculate embedding dimension for {series.name}!")
     dic = {'FNN': mean_false_nearest_neighbors, 'E': optimal_embedding_dimension}
     return dic if full else optimal_embedding_dimension
